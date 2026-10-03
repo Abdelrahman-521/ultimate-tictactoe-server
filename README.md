@@ -2,12 +2,12 @@
 
 The server side of a browser-based **Ultimate Tic-Tac-Toe** game: a small REST API that creates, loads, updates and saves games, plus the HTML pages the player sees.
 
-Term project for COMP 2005 (Software Engineering) at Memorial University, built by a five-person team using Agile sprints, GitHub pull requests and code review.
+Term project for COMP 2005 (Software Engineering) at Memorial University, built by a five-person Agile team.
 
 ## My part: the server API
 I owned `server/serverAPI.py`, the HTTP layer between the browser and the game logic.
 
-- **Routes:** start a new game, load a saved game, update the board with a move, return the current game state, and handle player accounts (registration, login, password renewal)
+- **Routes:** `/new_game`, `/load_game`, `/make_move`, `/load_game_status`, `/save_game_status` and `/user_info`
 - **Built with:** Python and the Bottle WSGI framework, returning JSON
 - **Persistence:** saves and restores games through the team's storage module
 - **Design:** UML and architecture notes in [`docs/`](docs/), and a stub server (`server/stub_serverAPI.py`) so the front end could be built before the real API was ready
@@ -19,7 +19,7 @@ I owned `server/serverAPI.py`, the HTTP layer between the browser and the game l
 Static pages in `web/`: login, registration, password renewal, game board and stats.
 
 ## How the team worked
-Two-week sprints, Kanban board, UML architecture docs, unit tests, and every change through a pull request reviewed by a teammate.
+Sprint planning, a Kanban board, UML architecture docs, unit tests and pull-request code reviews.
 
 ## Note
 This repo is a showcase of my contribution. The full game logic and storage modules lived in the team's course repository.
