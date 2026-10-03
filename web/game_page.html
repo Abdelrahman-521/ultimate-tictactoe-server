@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Tic Tac Toe</title>
+    <script>
+      function showPlayerStats() {
+            window.open("main/stats_page.html", "_blank");
+        }
+  </script>
+  <style>
+    body {
+    text-align: center;
+  }
+
+  .intro {
+    color: #000000;
+    width: 50%;
+    margin: 0 auto 50px;
+  }
+
+  h1 {
+    font-size: 70px;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  #instruct {
+    margin-bottom: 0;
+  }
+
+  #instruct-text {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    justify-content: center;
+    align-content: center;
+    color: #000000;
+    margin-bottom: 100px;
+  }
+
+   .exterior {
+     background-color: #ffffff;
+     font-size: 35px;
+     padding: 20px;
+     max-width: 180px;
+     width: 20vw;
+     max-height: 180px;
+     height: 20vw;
+     border: 4px solid #000000;
+     display: grid;
+     grid-template-columns: auto auto auto;
+     grid-template-rows: auto auto auto;
+     align-items: center;
+     justify-content: center;
+  }
+
+  .interior {
+    display: flex;
+    flex-direction: column;
+    max-width: 60px;
+    width: 6vw;
+    max-height: 60px;
+    height: 6vw;
+    border: 2px solid #000000;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .played {
+    display: block;
+    font-size: 130px;
+  }
+
+  @media (max-width: 500px) {
+    .intro {
+      width: 90%;
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin: 10px auto 0;
+    }
+
+    .player p {
+      font-size: 15px;
+      margin-top: 0;
+    }
+
+    .interior {
+      font-size: 20px;
+    }
+
+    .played {
+      font-size: 80px;
+    }
+  }
+  </style>
+</head>
+<body>
+    <div class='intro'>
+      <h1>Super Tic Tac Toe</h1>
+      <div class='instructions'>
+      <h2 id='instruct'>Instructions</h2>
+        <p id='instruct-text'>To play, take turns placing X and O in the interior grids. Wherever you play in the interior grid, the next player must make their play in the corresponding exterior grid space. Get three in a row in the interior grid and claim the space on the exterior grid. Get three in a row in the exterior grid and you win the game!</p>
+      </div>
+      <button onclick="showPlayerStats()">Show Player Stats</button>
+    </div>
+
+    <div class='gameboard'>
+      <div class='player' id='player1'>
+        <h2>Player 1</h2>
+        <p id='player1-text'>It's your turn, place your X!</p>
+      </div>
+
+      <div class='player' id='player2'>
+        <h2>Player 2</h2>
+        <p id='player2-text'>It's your turn, place your O!</p>
+      </div>
+
+      <div class='grid'>
+        <div class='exterior' id='a1'>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='0, 0' class='interior a1' onclick="" id='(0, 0)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='0, 1' class='interior a1' id='(0, 1)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='0, 2' class='interior a1' id='(0, 2)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='3, 0' class='interior a1' id='(3, 0)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='3, 1' class='interior a1' id='(3, 1)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='3, 2' class='interior a1' id='(3, 2)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='6, 0' class='interior a1' id='(6, 0)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='6, 1' class='interior a1' id='(6, 1)'></button>
+            </form>
+            <form action='/make_move' method='post'>
+              <button type='submit' name='cellId' value='6, 2' class='interior a1' id='(6, 2)'></button>
+            </form>
+        </div>
+        <div class='exterior' id='b1'>
+          <div class='interior b1' id='b1-a1'></div>
+          <div class='interior b1' id='b1-b1'></div>
+          <div class='interior b1' id='b1-c1'></div>
+          <div class='interior b1' id='b1-a2'></div>
+          <div class='interior b1' id='b1-b2'></div>
+          <div class='interior b1' id='b1-c2'></div>
+          <div class='interior b1' id='b1-a3'></div>
+          <div class='interior b1' id='b1-b3'></div>
+          <div class='interior b1' id='b1-c3'></div>
+        </div>
+        <div class='exterior' id='c1'>
+          <div class='interior c1' id='c1-a1'></div>
+          <div class='interior c1' id='c1-b1'></div>
+          <div class='interior c1' id='c1-c1'></div>
+          <div class='interior c1' id='c1-a2'></div>
+          <div class='interior c1' id='c1-b2'></div>
+          <div class='interior c1' id='c1-c2'></div>
+          <div class='interior c1' id='c1-a3'></div>
+          <div class='interior c1' id='c1-b3'></div>
+          <div class='interior c1' id='c1-c3'></div>
+        </div>
+        <div class='exterior' id='a2'>
+          <div class='interior a2' id='a2-a1'></div>
+          <div class='interior a2' id='a2-b1'></div>
+          <div class='interior a2' id='a2-c1'></div>
+          <div class='interior a2' id='a2-a2'></div>
+          <div class='interior a2' id='a2-b2'></div>
+          <div class='interior a2' id='a2-c2'></div>
+          <div class='interior a2' id='a2-a3'></div>
+          <div class='interior a2' id='a2-b3'></div>
+          <div class='interior a2' id='a2-c3'></div>
+        </div>
+        <div class='exterior' id='b2'>
+          <div class='interior b2' id='b2-a1'></div>
+          <div class='interior b2' id='b2-b1'></div>
+          <div class='interior b2' id='b2-c1'></div>
+          <div class='interior b2' id='b2-a2'></div>
+          <div class='interior b2' id='b2-b2'></div>
+          <div class='interior b2' id='b2-c2'></div>
+          <div class='interior b2' id='b2-a3'></div>
+          <div class='interior b2' id='b2-b3'></div>
+          <div class='interior b2' id='b2-c3'></div>
+        </div>
+        <div class='exterior' id='c2'>
+          <div class='interior c2' id='c2-a1'></div>
+          <div class='interior c2' id='c2-b1'></div>
+          <div class='interior c2' id='c2-c1'></div>
+          <div class='interior c2' id='c2-a2'></div>
+          <div class='interior c2' id='c2-b2'></div>
+          <div class='interior c2' id='c2-c2'></div>
+          <div class='interior c2' id='c2-a3'></div>
+          <div class='interior c2' id='c2-b3'></div>
+          <div class='interior c2' id='c2-c3'></div>
+        </div>
+        <div class='exterior' id='a3'>
+          <div class='interior a3' id='a3-a1'></div>
+          <div class='interior a3' id='a3-b1'></div>
+          <div class='interior a3' id='a3-c1'></div>
+          <div class='interior a3' id='a3-a2'></div>
+          <div class='interior a3' id='a3-b2'></div>
+          <div class='interior a3' id='a3-c2'></div>
+          <div class='interior a3' id='a3-a3'></div>
+          <div class='interior a3' id='a3-b3'></div>
+          <div class='interior a3' id='a3-c3'></div>
+        </div>
+        <div class='exterior' id='b3'>
+          <div class='interior b3' id='b3-a1'></div>
+          <div class='interior b3' id='b3-b1'></div>
+          <div class='interior b3' id='b3-c1'></div>
+          <div class='interior b3' id='b3-a2'></div>
+          <div class='interior b3' id='b3-b2'></div>
+          <div class='interior b3' id='b3-c2'></div>
+          <div class='interior b3' id='b3-a3'></div>
+          <div class='interior b3' id='b3-b3'></div>
+          <div class='interior b3' id='b3-c3'></div>
+        </div>
+        <div class='exterior' id='c3'>
+          <div class='interior c3' id='c3-a1'></div>
+          <div class='interior c3' id='c3-b1'></div>
+          <div class='interior c3' id='c3-c1'></div>
+          <div class='interior c3' id='c3-a2'></div>
+          <div class='interior c3' id='c3-b2'></div>
+          <div class='interior c3' id='c3-c2'></div>
+          <div class='interior c3' id='c3-a3'></div>
+          <div class='interior c3' id='c3-b3'></div>
+          <div class='interior c3' id='c3-c3'></div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
