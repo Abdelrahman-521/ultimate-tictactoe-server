@@ -1,8 +1,8 @@
 """REST API for the game, built with Bottle.
 
-This is the module Abdel owned in the course project (serverAPI.py), rebuilt
-so that it actually runs: real routes for users, games and moves, JSON in and
-out, proper HTTP status codes, and a computer opponent.
+This grew out of the module Abdel owned in the course project (serverAPI.py),
+completed into a full API: routes for users, games and moves, JSON in and out,
+proper HTTP status codes, and a computer opponent.
 
     python -m uttt.server            # then open http://localhost:8080
 """

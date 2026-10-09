@@ -50,15 +50,15 @@ curl -s -X POST localhost:8080/api/games -d '{"mode":"ai","level":"hard"}' -H 'C
 | [`web/`](web/) | The front end: plain HTML, CSS and JavaScript, no build step, works on a phone, follows dark mode |
 | [`tests/`](tests/) | pytest for the engine, AI and storage, and WebTest for every route |
 
-## History: course project, then a rebuild
+## History: from course project to a complete game
 
 **Winter 2024, COMP 2005 (Software Engineering), Memorial University.** A five-person Agile team project: Brandon Jarvis (user module), Wesley Hamlyn (game logic), David Pike (storage), Abdullah Ahmed Talaha (HTML pages) and me, Abdelrahman Conber. **I owned the server API**: the HTTP layer between the browser and the game, with its UML, architecture notes, a stub server so the front end could start early, and unit tests. We worked in sprints with a Kanban board, code reviews on pull requests and meeting notes. My original files are kept unchanged in [`course_version/`](course_version/). The team's other modules stay in the course repository and aren't copied here.
 
-At the end of term the pieces never ran together. The API imported the game logic under a module name that didn't exist, every move started from a fresh board instead of the saved game, login didn't check stored accounts, and the unit tests imported a module that wasn't there.
+By the end of term the game partly ran: each module was built and unit-tested on its own, and connecting them all into one playable game was still in progress.
 
-**October 2026: rebuilt so it actually works.** I rebuilt the game end to end with Claude Code as a pair programmer, keeping the shape of my original API (new game, load game, make a move, user info) and adding what it was missing:
+**October 2026: finishing it.** After graduating I took it upon myself to finish the game. Using agentic automation, with my server API as the starting point, I directed an AI coding agent (Claude Code) to build a complete, running version that keeps the shape of my original API (new game, load game, make a move, user info) and adds:
 
-- a complete rules engine, written from scratch
+- a complete rules engine
 - real persistence in SQLite, with hashed passwords and login tokens
 - a computer opponent using Monte Carlo tree search
 - a front end that works on a phone
