@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ultimate Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Ultimate Tic-Tac-Toe</h1>
+      <p class="rules">Where you play inside a small board sends your opponent to that board.
+        Win three small boards in a row to win.</p>
+    </header>
+
+    <section class="controls">
+      <label>Opponent
+        <select id="mode">
+          <option value="ai">Computer</option>
+          <option value="local">Friend on this screen</option>
+        </select>
+      </label>
+      <label id="level-wrap">Level
+        <select id="level">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+      <label id="side-wrap">You play
+        <select id="human">
+          <option value="X">X (first)</option>
+          <option value="O">O (second)</option>
+        </select>
+      </label>
+      <button id="new-game">New game</button>
+    </section>
+
+    <p id="status" role="status">Loading…</p>
+    <div id="board" class="board" aria-label="game board"></div>
+
+    <section class="account">
+      <div id="logged-out">
+        <input id="username" placeholder="username" autocomplete="username">
+        <input id="password" type="password" placeholder="password (8+ characters)" autocomplete="current-password">
+        <button id="login">Log in</button>
+        <button id="register" class="secondary">Sign up</button>
+        <span class="hint">Optional: log in to keep a win/loss record against the computer.</span>
+      </div>
+      <div id="logged-in" hidden>
+        <span id="who"></span> · <span id="record"></span>
+        <button id="logout" class="secondary">Log out</button>
+      </div>
+      <p id="account-msg" class="hint"></p>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

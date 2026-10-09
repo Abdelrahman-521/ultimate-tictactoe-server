@@ -1,6 +1,5 @@
 __pycache__/
 *.pyc
 .DS_Store
-work/
-.nextflow*
-*.mov
+*.sqlite3
+.pytest_cache/

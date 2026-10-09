@@ -1,0 +1,57 @@
+:root {
+  --bg: #f6f4ef;
+  --ink: #1d2433;
+  --muted: #6b7280;
+  --line: #c9c4b8;
+  --panel: #ffffff;
+  --x: #c2410c;
+  --o: #1d4ed8;
+  --active: #fde68a;
+  --accent: #0f766e;
+  --frame: #1d2433;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161b; --ink: #e8e6e1; --muted: #9aa0aa; --line: #3a3f4a;
+    --panel: #1d2028; --x: #fb923c; --o: #60a5fa; --active: #1f4d48; --accent: #2dd4bf;
+    --frame: #07080b;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+       font: 16px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 560px; margin: 0 auto; padding: 24px 16px 48px; }
+h1 { margin: 0 0 4px; font-size: 1.6rem; letter-spacing: -0.01em; }
+.rules, .hint { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: end; margin: 18px 0 10px; }
+label { display: flex; flex-direction: column; font-size: 0.8rem; color: var(--muted); gap: 3px; }
+select, input, button { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line);
+                        background: var(--panel); color: var(--ink); }
+button { background: var(--accent); color: #fff; border-color: transparent; cursor: pointer; }
+@media (prefers-color-scheme: dark) { button { color: #06201d; } }
+button.secondary { background: transparent; color: var(--ink); border-color: var(--line); }
+button:disabled { opacity: 0.5; cursor: default; }
+#status { font-weight: 600; min-height: 1.5em; margin: 8px 0 12px; }
+
+.board { display: grid; grid-template: repeat(3, minmax(0, 1fr)) / repeat(3, minmax(0, 1fr)); gap: 8px;
+         aspect-ratio: 1; width: 100%; background: var(--frame); padding: 8px; border-radius: 12px; }
+.small { position: relative; display: grid; grid-template: repeat(3, minmax(0, 1fr)) / repeat(3, minmax(0, 1fr));
+         gap: 3px; min-width: 0; min-height: 0; background: var(--line); padding: 3px; border-radius: 6px; }
+.small.playable { background: var(--accent); }
+.cell { border: 0; border-radius: 3px; padding: 0; width: 100%; height: 100%; min-width: 0; min-height: 0;
+        background: var(--panel); color: var(--ink); font-weight: 700; font-size: clamp(0.9rem, 4.2vw, 1.4rem);
+        cursor: default; }
+.cell:disabled { opacity: 1; }
+.cell.legal { background: var(--active); cursor: pointer; }
+.cell.legal:hover { filter: brightness(0.95); }
+.cell.X { color: var(--x); } .cell.O { color: var(--o); }
+.cell.last { outline: 2px solid var(--ink); outline-offset: -2px; }
+.claimed { position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800;
+           font-size: clamp(2.5rem, 13vw, 4.5rem); background: color-mix(in srgb, var(--panel) 80%, transparent);
+           border-radius: 6px; pointer-events: none; }
+.claimed.X { color: var(--x); } .claimed.O { color: var(--o); } .claimed.D { color: var(--muted); }
+
+.account { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line);
+           display: flex; flex-direction: column; gap: 6px; }
+.account input { width: 150px; }
+#logged-out { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }

@@ -1,0 +1,25 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -r requirements.txt -r requirements-dev.txt
+      - run: pytest -q
+      - name: Server starts and answers
+        run: |
+          python -m uttt.server --port 8099 --db ':memory:' &
+          sleep 2
+          curl -sf localhost:8099/api/health
+          curl -sf -X POST localhost:8099/api/games -H 'Content-Type: application/json' -d '{"mode":"local"}'
